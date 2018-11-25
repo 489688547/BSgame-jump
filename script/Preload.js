@@ -23,7 +23,7 @@ var loadState = function(game){
                 success: function(res) {
                     console.log("vision:5.0")
                     game.global.artistName = res.fields.slug
-                    backgroundImageId = res.fields.backgroundImage.sys.id
+                    backgroundImageId = res.fields.gameBackgroundImage.sys.id
                     backgroundMusicId = res.fields.backgroundMusic.sys.id
                     
                     $.ajax({
@@ -35,8 +35,8 @@ var loadState = function(game){
                             var m = res.includes.Asset.filter(music => music.sys.id === backgroundMusicId)
                             backgroundImageURL = s[0].fields.file.url;
                             backgroundMusicURL = m[0].fields.file.url;
-                            $('body').css({'background':'url('+backgroundImageURL+') no-repeat center center fixed', 'background-size': 'cover'});
-    
+                            $('body').css({'background':'black'});
+                            game.load.image('background',[{uri:`${backgroundImageURL}`, type:"png"}]);
                             // Load sounds
                             if(backgroundMusicURL) {
                                 game.load.audio('menuBg', [{uri:`${backgroundMusicURL}`, type:"mp3"}]);
@@ -72,7 +72,7 @@ var loadState = function(game){
           */
           
           // load all objcet 
-          this.load.image('background','assets/bg.png');
+          
           this.load.image('cactus','assets/cactus.png');
           this.load.image('platform','assets/platform.png');
           
