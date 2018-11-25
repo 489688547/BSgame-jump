@@ -36,7 +36,7 @@ var loadState = function(game){
                             backgroundImageURL = s[0].fields.file.url;
                             backgroundMusicURL = m[0].fields.file.url;
                             $('body').css({'background':'black'});
-                            game.load.image('background',[{uri:`${backgroundImageURL}`, type:"png"}]);
+                            game.load.image('background',[{uri:`${backgroundImageURL}`}]);
                             // Load sounds
                             if(backgroundMusicURL) {
                                 game.load.audio('menuBg', [{uri:`${backgroundMusicURL}`, type:"mp3"}]);
