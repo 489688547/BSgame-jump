@@ -28,7 +28,9 @@ var playState = function(game){
             game.global.cocoSound = this.game.add.audio('cocoSound',1,false);
             
           this.background = new background(game);
-          this.background.create(); 
+          this.background = game.add.tileSprite(0, 0, game.width,game.height,'background');
+        this.background.fixedToCamera = true;
+          //this.background.create(); 
             
           this.platforms = new platform(game);
           this.platforms.create();
